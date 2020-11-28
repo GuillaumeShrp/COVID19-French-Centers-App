@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Covid Test</string>
+    <string name="random_text">This is the start of a new branch</string>
+    <string name="center_name">LMB de Vivouland</string>
+    <string name="center_adress">Avenue de la Terrasse 91190 GIF-SUR-YVETTE</string>
+    <string name="pharmacy">Test center</string>
 </resources>

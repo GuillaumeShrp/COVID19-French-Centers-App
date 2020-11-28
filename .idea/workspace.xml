@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b17b2729-bcbc-40eb-84aa-cc9acf461e80" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/com/ismin/projectapp/Utils.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/CovidTestingSite.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/ismin/projectapp/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/ismin/projectapp/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/app.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/app.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\guill\Documents\ISMIN\JavaScript\project\android-app\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1js5lAc6n08uhoxjsUhFg55GWXz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ismin-android-2020-tp2" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b17b2729-bcbc-40eb-84aa-cc9acf461e80" name="Default Changelist" comment="" />
+      <created>1604580106344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604580106344</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Add json file for COVID detection center">
+      <created>1604583003668</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604583003668</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add json file for COVID detection center" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add json file for COVID detection center" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="85" y="118" key="CommitChangelistDialog2" timestamp="1604583002985">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="85" y="118" key="CommitChangelistDialog2/-4.1080.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604583002985" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604590402829">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/-4.1080.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604590402829" />
+    <state x="183" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1604590389405">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="183" y="344" key="com.intellij.ide.util.TipDialog/-4.1080.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604590389405" />
+  </component>
+</project>
