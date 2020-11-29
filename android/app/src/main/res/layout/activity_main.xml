@@ -21,6 +21,7 @@
         android:id="@+id/a_main_button_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="goToDBInfo"
         android:text="@string/toggle_list"
         android:textOff="@string/toggle_dbinfo"
         android:textOn="@string/toggle_list"
