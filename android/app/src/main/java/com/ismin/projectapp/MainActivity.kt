@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentTransaction
 
 class MainActivity : AppCompatActivity() {
 
-    private val testCenterList = CovidTestCenter();
+    //private val testCenterList = CovidTestCenter();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,14 +24,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun displayList() {
+    /*private fun displayList() {
         val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList.getAllBooks())
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_fragment_container, centerListFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
-    }
+    }*/
 
     fun goToDBInfo(view: View) {
         val dbInfoFragment = DBInfoFragment()

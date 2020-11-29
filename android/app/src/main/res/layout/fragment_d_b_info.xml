@@ -8,18 +8,52 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="241dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="16dp"
+            android:id="@+id/f_dbinfo_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/db_title"
             android:textSize="24sp"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/f_dbinfo_text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#FDE6C4C4"
+            android:text="@string/db_text1"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/f_dbinfo_title"
+            app:layout_constraintStart_toStartOf="@+id/f_dbinfo_title"
+            app:layout_constraintTop_toBottomOf="@+id/f_dbinfo_title" />
+
+        <TextView
+            android:id="@+id/f_dbinfo_subtext1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/db_subtext1"
+            app:layout_constraintEnd_toEndOf="@+id/f_dbinfo_text1"
+            app:layout_constraintStart_toStartOf="@+id/f_dbinfo_text1"
+            app:layout_constraintTop_toBottomOf="@+id/f_dbinfo_text1" />
+
+        <WebView
+            android:id="@+id/f_dbinfo_webtxt"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/f_dbinfo_subtext1"
+            app:layout_constraintStart_toStartOf="@+id/f_dbinfo_subtext1"
+            app:layout_constraintTop_toBottomOf="@+id/f_dbinfo_subtext1" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

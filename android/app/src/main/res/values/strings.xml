@@ -5,4 +5,19 @@
     <string name="center_adress">Avenue de la Terrasse 91190 GIF-SUR-YVETTE</string>
     <string name="pharmacy">Test center</string>
     <string name="db_title">Sites de prélèvements pour les tests COVID</string>
+    <string name="db_text1"><b>Contexte</b></string>
+    <string name="toggle_list">Center List</string>
+    <string name="db_subtext1">blablabla</string>
+    <string name="hello">
+        <![CDATA[
+        <html>
+         <head></head>
+         <body style="text-align:justify;color:gray;background-color:black;">
+          Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Nunc pellentesque, urna
+          nec hendrerit pellentesque, risus massa
+         </body>
+        </html>
+        ]]></string>
+    <string name="toggle_dbinfo">DB Credits</string>
 </resources>
