@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
     }
 
     private fun displayErrorToast(t: Throwable) {
@@ -32,6 +33,15 @@ class MainActivity : AppCompatActivity() {
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
     }*/
+
+    private fun displayDBInfo() {
+        val dbInfoFragment = DBInfoFragment.newInstance()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.a_main_fragment_container, dbInfoFragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .commit()
+    }
 
     fun goToDBInfo(view: View) {
         val dbInfoFragment = DBInfoFragment()
