@@ -11,7 +11,7 @@ class TestCenterAdapter(private val centers: ArrayList<CovidTestCenter>) : Recyc
     }
 
     override fun onBindViewHolder(holder: CentersViewHolder, position: Int) {
-        val (name, address) = this.centers[position]
+        val (id, name, address) = this.centers[position]
 
         holder.txvCenterName.text = name
         holder.txvCenterAddress.text = address

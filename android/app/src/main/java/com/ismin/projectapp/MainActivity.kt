@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
     private var testCenterList: ArrayList<CovidTestCenter> = arrayListOf<CovidTestCenter>()
     private lateinit var covidTestCenterService: CovidTestCenterService
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                 allCovidCenter?.forEach { covidCenter ->
                     testCenterList.add(covidCenter)
                 }
+                displayList()
             }
 
             onFailure = {
@@ -79,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }*/
 
-    fun goToDBInfo(view: View) {
+    /*fun goToDBInfo(view: View) {
         val dbInfoFragment = DBInfoFragment()
 
         supportFragmentManager.beginTransaction()
@@ -89,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
         //a_main_btn_creation.visibility = View.GONE
-    }
+    }*/
 
     /*override fun backToCenterList(book: Book) {
         bookService.createBook(book).enqueue {
