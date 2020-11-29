@@ -1,12 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { CovidTestCenter } from './CovidTestCenter';
 
-@Controller()
+@Controller('/covidCenters')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  async getCovidTestCenters(): Promise<CovidTestCenter[]> {
+    return this.appService.getCovidTestCenters();
   }
 }
