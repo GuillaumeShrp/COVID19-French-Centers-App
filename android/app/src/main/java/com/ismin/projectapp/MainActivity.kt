@@ -78,17 +78,17 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }*/
 
-    /*fun goToDBInfo(view: View) {
+    fun goToDBInfo(view: View) {
         val dbInfoFragment = DBInfoFragment()
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.a_main_fragment_container, dbInfoFragment)
-            .addToBackStack("dbInfoFragment")
+            .replace(R.id.a_main_fragment_container, dbInfoFragment)
+            //.addToBackStack("dbInfoFragment")
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
 
         //a_main_btn_creation.visibility = View.GONE
-    }*/
+    }
 
     /*override fun backToCenterList(book: Book) {
         bookService.createBook(book).enqueue {

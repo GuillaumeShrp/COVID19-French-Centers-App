@@ -2,21 +2,90 @@
     <string name="app_name">Covid Test</string>
     <string name="center_name">LMB de Vivouland</string>
     <string name="center_adress">Avenue de la Terrasse 91190 GIF-SUR-YVETTE</string>
-    <string name="pharmacy">Test center</string>
-    <string name="db_title">Sites de prélèvements pour les tests COVID</string>
-    <string name="db_text1"><b>Contexte</b></string>
-    <string name="toggle_list">Go to Center List</string>
-    <string name="toggle_dbinfo">Go to DB credits</string>
+    <string name="img_pharmacy">Test center</string>
+    <string name="toggle_list">Center List</string>
+    <string name="toggle_dbinfo">DB credits</string>
     <string name="db_subtext1">Ces données sont remontées par une enquête en ligne auprès des laboratoires de biologie médicale publics et privés qui réalisent des prélèvements nasopharyngés en vue d\'une analyse par RT-PCR dits PCR à la recherche de l\'ARN du virus SARS-CoV2.</string>
     <string name="hello">
         <![CDATA[
         <html>
-         <head></head>
-         <body style="text-align:justify;color:gray;background-color:black;">
-          Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Nunc pellentesque, urna
-          nec hendrerit pellentesque, risus massa
-         </body>
+        <head></head>
+        <body>
+        <div class="page-header">
+            <h2>Sites de prélèvements pour les tests COVID</h2>
+            <div class="row">
+                <p class="col-md-12">
+                    <small><strong>Ce jeu de données provient d\'un service public certifié</strong><br></small>
+                    <small class="small-badge">
+                        <a href="/fr/search/?badge=covid-19" title="Voir tous les jeux de données avec ce badge.">
+                            <span class="fa fa-bookmark"></span>
+                            Covid-19</a>
+                    </small>
+                </p>
+            </div>
+        </div>
+        <div>
+            <h3>Contexte</h3>
+            <p>Ces données sont remontées par une enquête en ligne auprès des laboratoires de biologie médicale publics et privés qui réalisent des prélèvements nasopharyngés en vue d\'une analyse par RT-PCR dits PCR à la recherche de l\'ARN du virus SARS-CoV2.</p>
+            <h3>Producteur</h3>
+            <p>L\'enquête est mise en place par le centre de crise sanitaire de la DGS. La mise en oeuvre technique est réalisée par la santé DREES.</p>
+            <h3>Les données</h3>
+            <p>Le présent jeu de données renseigne sur les sites où peuvent être effectués des tests virologiques (RT-PCR) :</p>
+            <ul>
+               <li>Identifiants du site </li>
+               <li>Localisation et géolocalisation du site</li>
+               <li>Les modalités de prélèvement </li>
+               <li>Le type de public accueilli</li>
+               <li>Les horaires d’ouvertures du site</li>
+               <li>Les horaires d\'ouvertures du site aux personnes prioritaires</li>
+               <li>La nécessité ou non de prendre rendez-vous </li>
+               <li>Le numéro de téléphone et l’adresse email ou site internet pour prendre rendez-vous le cas échéant</li>
+               <li>La dernière date de mise à jour d\'un des laboratoires rattaché à l\'identifiant juridique</li>
+            </ul>
+            <h3>Point d’attention sur les données</h3>
+            <p>Attention, veuillez noter que :</p>
+            <ul>
+               <li>Les données sont susceptibles d\'évoluer régulièrement lorsque des imprécisions sont identifiées ou que les laboratoires modifient en accord avec les ARS leurs modalités d\'accueil du public pour la réalisation des prélèvements naso-pharyngés ; </li>
+               <li><strong>Tous les sites de prélèvement n’accueillent pas le grand public.</strong> Une table pour les sites d\'accès restreint est proposée séparément. Veuillez vous référer à la colonne “public” pour vous informer du type de public accueilli.</li>
+            </ul>
+            <h3>Diffusion</h3>
+            <p>Le site de diffusion <a href="https://sante.fr/recherche/trouver/DepistageCovid" rel="nofollow">grand public sante.fr</a> intègre quotidiennement ces données.</p>
+            <h3>A propos des données</h3>
+            <p>Par défaut, les coordonnées géographiques sont collectées à partir de la <a href="https://www.data.gouv.fr/fr/datasets/finess-extraction-du-fichier-des-etablissements/">base FINESS des établissements géolocalisés</a>.</p>
+            <p>Sinon les laboratoires peuvent renseigner l\'adresse manuellement, la saisie s\'appuie sur l\'<a href="http://geo.api.gouv.fr/" rel="nofollow">API adresse mise à disposition d\'Etalab</a>.</p>
+            <p>Lorsque l\'API géo ne permet pas de trouver l\'adresse recherchée, le laboratoire place le marqueur sur la carte et vérifie l\'adresse associée grâce à la fonction de géocodage inverse <a href="http://geo.api.gouv.fr/" rel="nofollow">(reverse) de l\'API geo</a>.</p>
+            <h3>Lexique</h3>
+            <ul>
+               <li>API = Application Programming Interface</li>
+               <li>DREES =  Direction de la Recherche, des Études, de l\’Évaluation et des Statistiques au Ministère des Solidarités et de la Santé</li>
+               <li>DGS = Direction Générale de la Santé</li>
+               <li>ARS = Agence Régionale de Santé</li>
+            </ul>
+            <h3>Colonnes du fichier</h3>
+            <ul>
+               <li><code>ID</code> : Identifiant</li>
+               <li><code>id_ej</code> : Finess juridique</li>
+               <li><code>finess</code> : Finess géographique</li>
+               <li><code>rs</code> : Raison sociale</li>
+               <li><code>adresse</code> : Adresse</li>
+               <li><code>cpl_loc</code> : Complément localisation</li>
+               <li><code>do_prel</code> : Effectue test RT-PCR</li>
+               <li><code>do_antigenic</code> : Effectue test antigénique</li>
+               <li><code>longitude</code> : Longitude</li>
+               <li><code>latitude</code> : Latitude</li>
+               <li><code>mod_prel</code> : Modalités de prélèvement</li>
+               <li><code>public</code> : Publics accueillis</li>
+               <li><code>horaire</code> : Horaire</li>
+               <li><code>horaire_prio</code> : Horaire personnes prioritaires</li>
+               <li><code>check_rdv</code> : Avec ou sans rendez-vous</li>
+               <li><code>tel_rdv</code> : Téléphone prise rendez-vous</li>
+               <li><code>web_rdv</code> : Site internet prise rendez-vous</li>
+               <li><code>date_modif</code> : Derniere date de mise a jour</li>
+            </ul>
+            <h3>Source</h3>
+            <p><a href="https://www.data.gouv.fr/fr/datasets/sites-de-prelevements-pour-les-tests-covid/" rel=nofollow> www.data.gouv.fr</a></p>
+        </div>
+        </body>
         </html>
         ]]></string>
     <string name="img_fav_off">fav off</string>

@@ -35,7 +35,7 @@
         android:id="@+id/e_center_img"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:contentDescription="@string/pharmacy"
+        android:contentDescription="@string/img_pharmacy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_pharmacy" />
