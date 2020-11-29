@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/f_center_list_rs"
+        android:id="@+id/e_center_list_rs"
         android:layout_width="317dp"
         android:layout_height="38dp"
         android:layout_marginStart="8dp"
@@ -15,13 +15,13 @@
         android:text="@string/center_name"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/f_center_list_adress"
-        app:layout_constraintEnd_toEndOf="@+id/f_center_list_adress"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/e_center_list_address"
+        app:layout_constraintEnd_toEndOf="@+id/e_center_list_address"
+        app:layout_constraintStart_toEndOf="@+id/e_center_img"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/f_center_list_adress"
+        android:id="@+id/e_center_list_address"
         android:layout_width="380dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
@@ -31,14 +31,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/f_center_list_rs" />
+        app:layout_constraintTop_toBottomOf="@+id/e_center_list_rs" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/e_center_img"
         android:layout_width="52dp"
         android:layout_height="45dp"
         android:contentDescription="@string/pharmacy"
-        app:layout_constraintStart_toStartOf="@+id/f_center_list_adress"
-        app:layout_constraintTop_toTopOf="@+id/f_center_list_rs"
+        app:layout_constraintStart_toStartOf="@+id/e_center_list_address"
+        app:layout_constraintTop_toTopOf="@+id/e_center_list_rs"
         app:srcCompat="@drawable/ic_pharmacy" />
 </androidx.constraintlayout.widget.ConstraintLayout>
