@@ -1,8 +1,22 @@
 <resources>
     <string name="app_name">Covid Test</string>
-    <string name="random_text">This is the start of a new branch</string>
     <string name="center_name">LMB de Vivouland</string>
     <string name="center_adress">Avenue de la Terrasse 91190 GIF-SUR-YVETTE</string>
     <string name="pharmacy">Test center</string>
     <string name="db_title">Sites de prélèvements pour les tests COVID</string>
+    <string name="db_text1"><b>Contexte</b></string>
+    <string name="toggle_list">Go to Center List</string>
+    <string name="toggle_dbinfo">Go to DB credits</string>
+    <string name="db_subtext1">Ces données sont remontées par une enquête en ligne auprès des laboratoires de biologie médicale publics et privés qui réalisent des prélèvements nasopharyngés en vue d\'une analyse par RT-PCR dits PCR à la recherche de l\'ARN du virus SARS-CoV2.</string>
+    <string name="hello">
+        <![CDATA[
+        <html>
+         <head></head>
+         <body style="text-align:justify;color:gray;background-color:black;">
+          Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Nunc pellentesque, urna
+          nec hendrerit pellentesque, risus massa
+         </body>
+        </html>
+        ]]></string>
 </resources>

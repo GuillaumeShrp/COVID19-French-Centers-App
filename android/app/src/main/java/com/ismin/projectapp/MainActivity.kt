@@ -69,6 +69,16 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    /*
+    private fun displayDBInfo() {
+        val dbInfoFragment = DBInfoFragment.newInstance()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.a_main_fragment_container, dbInfoFragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .commit()
+    }*/
+
     fun goToDBInfo(view: View) {
         val dbInfoFragment = DBInfoFragment()
 
