@@ -2,17 +2,53 @@ package com.ismin.projectapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+const val SERVER_BASE_URL = "https://covidtesingcenter-app.cleverapps.io/"
 
 class MainActivity : AppCompatActivity() {
 
-    private val testCenterList = CovidTestCenter();
+    private var testCenterList: ArrayList<CovidTestCenter> = arrayListOf<CovidTestCenter>()
+    private lateinit var covidTestCenterService: CovidTestCenterService
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Récupération des données sur le serveur web
+        Log.i("INFO", "Récupération des données")
+
+        val retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(SERVER_BASE_URL)
+            .build()
+
+        covidTestCenterService = retrofit.create(CovidTestCenterService::class.java)
+
+        covidTestCenterService.getAllCovidCenters().enqueue {
+            onResponse = { response ->
+                val allCovidCenter = response.body()
+                allCovidCenter?.forEach { covidCenter ->
+                    testCenterList.add(covidCenter)
+                }
+            }
+
+            onFailure = {
+                if (it != null) {
+                    displayErrorToast(it)
+                }
+            }
+        }
     }
 
     private fun displayErrorToast(t: Throwable) {
@@ -25,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun displayList() {
-        val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList.getAllBooks())
+        val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_fragment_container, centerListFragment)

@@ -1,4 +1,4 @@
-package com.ismin.android
+package com.ismin.projectapp
 
 import retrofit2.Call
 import retrofit2.Callback
