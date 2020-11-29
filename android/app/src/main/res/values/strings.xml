@@ -4,4 +4,6 @@
     <string name="center_name">LMB de Vivouland</string>
     <string name="center_adress">Avenue de la Terrasse 91190 GIF-SUR-YVETTE</string>
     <string name="pharmacy">Test center</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
