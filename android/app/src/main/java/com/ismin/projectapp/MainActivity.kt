@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fetchNDisplayData()
+        fetchData()
     }
 
-    private fun fetchNDisplayData() {
+    private fun fetchData() {
         //Récupération des données sur le serveur web
         Log.i("INFO", "Récupération des données")
 
@@ -66,26 +66,6 @@ class MainActivity : AppCompatActivity() {
         ).show()
     }
 
-
-    /*private fun displayList() {
-        val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList)
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.a_main_fragment_container, centerListFragment)
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            .commit()
-    }*/
-
-    /*
-    private fun displayDBInfo() {
-        val dbInfoFragment = DBInfoFragment.newInstance()
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.a_main_fragment_container, dbInfoFragment)
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            .commit()
-    }*/
-
     private fun displayDBInfo() {
         val dbInfoFragment = DBInfoFragment()
 
@@ -94,6 +74,8 @@ class MainActivity : AppCompatActivity() {
             //.addToBackStack("dbInfoFragment")
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
+
+        Toast.makeText(this, "Display DB info fragment", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -104,11 +86,14 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.a_main_fragment_container, centerListFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
+
+        Toast.makeText(this, "Display center list fragment", Toast.LENGTH_SHORT).show()
     }
 
     fun actionToggleButton(view: View) {
+        //Toast.makeText(this, "Toggle action", Toast.LENGTH_SHORT).show()
         val toggle: ToggleButton = findViewById(R.id.a_main_button_list)
-        toggle.setOnCheckedChangeListener { buttonView, isChecked ->
+        toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 displayDBInfo()
             } else {
@@ -117,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /** POUR LE MENU DANS LA TOOLBAR */
+    /** POUR LE MENU DE LA TOOLBAR */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
@@ -127,32 +112,11 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) { //switch case
             R.id.menu_action_refresh -> {
                 testCenterList.clear()
-                fetchNDisplayData()
-                Toast.makeText(this, "Bibliothèque effacée", Toast.LENGTH_SHORT).show()
+                fetchData()
+                Toast.makeText(this, "Server data refreshed", Toast.LENGTH_SHORT).show()
                 true //equal to return true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
-    /*override fun backToCenterList(book: Book) {
-        bookService.createBook(book).enqueue {
-            onResponse = {
-                bookshelf.addBook(it.body()!!)
-                closeCreateFragment()
-            }
-            onFailure = {
-                if (it != null) {
-                    displayErrorToast(it)
-                }
-            }
-        }
-    }*/
-
-    /*override fun closeCreateFragment() {
-        displayList();
-
-        a_main_btn_creation.visibility = View.VISIBLE
-    }*/
 }
