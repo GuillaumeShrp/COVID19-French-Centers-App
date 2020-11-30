@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.fragment.app.FragmentTransaction
+import android.content.Intent
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -99,6 +100,12 @@ class MainActivity : AppCompatActivity() {
                 displayList()
             }
         }
+    }
+
+    fun showDetailCovidCenter(view: View) {
+        val intent = Intent(this, DetailActivity::class.java)
+        //intent.putExtra(Intent.EXTRA_TEXT, "HlI2rCJ014Dk4X3Z")
+        this.startActivity(intent)
     }
 
     /*fun toFavOn(view: View) {

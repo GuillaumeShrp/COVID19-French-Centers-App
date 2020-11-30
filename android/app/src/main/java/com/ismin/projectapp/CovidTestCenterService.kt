@@ -10,6 +10,6 @@ interface CovidTestCenterService {
     @GET("CovidCenters")
     fun getAllCovidCenters(): Call<List<CovidTestCenter>>
 
-    @GET("CovidCenters/{covidCenterId}")
+    @GET("CovidCenters/search/{covidCenterId}")
     fun getCovidCenter(@Path("covidCenterId") covidCenterId: String): Call<CovidTestCenter>
 }
