@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Covid Test</string>
+    <string name="app_name">Covid Test Centers</string>
     <string name="center_name">LMB de Vivouland</string>
     <string name="center_adress">Avenue de la Terrasse 91190 GIF-SUR-YVETTE</string>
     <string name="img_pharmacy">Test center</string>

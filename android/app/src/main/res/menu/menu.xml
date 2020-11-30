@@ -6,7 +6,8 @@
         android:id="@+id/menu_action_refresh"
         android:icon="@drawable/ic_refresh_foreground"
         android:iconTint="@color/colorAccent"
-        app:showAsAction="ifRoom"
-        />
+
+        app:showAsAction="ifRoom"/>
+        <!--display roughly the icon instead of a menu (3 dots)-->
 
 </menu>
