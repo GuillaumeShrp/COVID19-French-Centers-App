@@ -103,8 +103,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showDetailCovidCenter(view: View) {
+        displayDBInfo()
         val intent = Intent(this, DetailActivity::class.java)
-        //intent.putExtra(Intent.EXTRA_TEXT, "HlI2rCJ014Dk4X3Z")
+        intent.putExtra(Intent.EXTRA_TEXT, "HlI2rCJ014Dk4X3Z")
         this.startActivity(intent)
     }
 
