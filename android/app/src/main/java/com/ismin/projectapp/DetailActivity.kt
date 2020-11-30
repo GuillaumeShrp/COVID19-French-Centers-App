@@ -38,7 +38,7 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
-
+        findViewById<TextView>(R.id.detail_rs).text = covidCenter.rs
         findViewById<TextView>(R.id.detail_addr).text = covidCenter.adresse
         findViewById<TextView>(R.id.detail_do_antigenic).text = covidCenter.do_antigenic
         findViewById<TextView>(R.id.detail_do_prel).text = covidCenter.do_prel
