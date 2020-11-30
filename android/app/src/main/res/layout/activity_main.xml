@@ -14,14 +14,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </RelativeLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
         android:id="@+id/a_main_button_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="goToDBInfo"
+        android:onClick="actionToggleButton"
         android:text="@string/toggle_list"
         android:textOff="@string/toggle_dbinfo"
         android:textOn="@string/toggle_list"

@@ -3,8 +3,12 @@ package com.ismin.projectapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.CompoundButton
 import android.widget.Toast
+import android.widget.ToggleButton
 import androidx.fragment.app.FragmentTransaction
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        fetchNDisplayData()
+    }
+
+    private fun fetchNDisplayData() {
         //Récupération des données sur le serveur web
         Log.i("INFO", "Récupération des données")
 
@@ -59,14 +67,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun displayList() {
+    /*private fun displayList() {
         val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_fragment_container, centerListFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
-    }
+    }*/
 
     /*
     private fun displayDBInfo() {
@@ -78,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }*/
 
-    fun goToDBInfo(view: View) {
+    private fun displayDBInfo() {
         val dbInfoFragment = DBInfoFragment()
 
         supportFragmentManager.beginTransaction()
@@ -86,9 +94,47 @@ class MainActivity : AppCompatActivity() {
             //.addToBackStack("dbInfoFragment")
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
-
-        //a_main_btn_creation.visibility = View.GONE
     }
+
+
+    private fun displayList() {
+        val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.a_main_fragment_container, centerListFragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .commit()
+    }
+
+    fun actionToggleButton(view: View) {
+        val toggle: ToggleButton = findViewById(R.id.a_main_button_list)
+        toggle.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                displayDBInfo()
+            } else {
+                displayList()
+            }
+        }
+    }
+
+    /** POUR LE MENU DANS LA TOOLBAR */
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) { //switch case
+            R.id.menu_action_refresh -> {
+                testCenterList.clear()
+                fetchNDisplayData()
+                Toast.makeText(this, "Bibliothèque effacée", Toast.LENGTH_SHORT).show()
+                true //equal to return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 
     /*override fun backToCenterList(book: Book) {
         bookService.createBook(book).enqueue {

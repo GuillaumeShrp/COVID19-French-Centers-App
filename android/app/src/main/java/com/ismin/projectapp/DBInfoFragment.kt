@@ -24,10 +24,6 @@ class DBInfoFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-
-
-
-
         val rootView = inflater.inflate(R.layout.fragment_d_b_info, container, false)
         infoWebView = rootView.findViewById(R.id.f_dbinfo_webtxt) as WebView
         infoWebView!!.loadData(getString(R.string.hello), "text/html", "UTF-8")
