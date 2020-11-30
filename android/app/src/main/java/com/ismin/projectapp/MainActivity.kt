@@ -6,12 +6,9 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.CompoundButton
-import android.widget.ImageButton
-import android.widget.Toast
-import android.widget.ToggleButton
 import androidx.fragment.app.FragmentTransaction
 import android.content.Intent
+import android.widget.*
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -105,7 +102,7 @@ class MainActivity : AppCompatActivity() {
     fun showDetailCovidCenter(view: View) {
         displayDBInfo()
         val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra(Intent.EXTRA_TEXT, "HlI2rCJ014Dk4X3Z")
+        intent.putExtra(Intent.EXTRA_TEXT,  view.findViewById<TextView>(R.id.e_center_list_rs).text.toString())
         this.startActivity(intent)
     }
 

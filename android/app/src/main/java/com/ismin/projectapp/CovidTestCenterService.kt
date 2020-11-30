@@ -12,4 +12,7 @@ interface CovidTestCenterService {
 
     @GET("CovidCenters/search/{covidCenterId}")
     fun getCovidCenter(@Path("covidCenterId") covidCenterId: String): Call<CovidTestCenter>
+
+    @GET("CovidCenters/rs/{rs}")
+    fun getCovidCenterByRs(@Path("rs") rs: String): Call<CovidTestCenter>
 }

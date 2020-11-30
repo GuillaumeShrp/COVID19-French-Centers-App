@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class DetailActivity : AppCompatActivity() {
 
-    private var covidCenterTestId = ""
+    private var covidCenterTestRs = ""
     private lateinit var covidTestCenterService: CovidTestCenterService
     private lateinit var covidCenter: CovidTestCenter
 
@@ -22,7 +22,7 @@ class DetailActivity : AppCompatActivity() {
 
         Log.e("info" ,"Lancement activité")
 
-        this.covidCenterTestId = intent.getStringExtra(Intent.EXTRA_TEXT).toString()
+        this.covidCenterTestRs = intent.getStringExtra(Intent.EXTRA_TEXT).toString()
 
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -31,7 +31,7 @@ class DetailActivity : AppCompatActivity() {
 
         covidTestCenterService = retrofit.create(CovidTestCenterService::class.java)
 
-        covidTestCenterService.getCovidCenter(covidCenterTestId).enqueue {
+        covidTestCenterService.getCovidCenterByRs(covidCenterTestRs).enqueue {
             onResponse = { response ->
                 covidCenter = response.body()!!
                 findViewById<TextView>(R.id.detail_rs).text = covidCenter.rs
