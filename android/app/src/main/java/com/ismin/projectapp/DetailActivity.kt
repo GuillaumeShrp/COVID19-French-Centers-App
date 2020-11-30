@@ -14,7 +14,7 @@ class DetailActivity : AppCompatActivity() {
 
     private var covidCenterTestId = ""
     private lateinit var covidTestCenterService: CovidTestCenterService
-    private var covidCenter: CovidTestCenter? = null
+    private lateinit var covidCenter: CovidTestCenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +33,13 @@ class DetailActivity : AppCompatActivity() {
 
         covidTestCenterService.getCovidCenter(covidCenterTestId).enqueue {
             onResponse = { response ->
-                Log.e("info" ,response.body().toString())
                 covidCenter = response.body()!!
+                findViewById<TextView>(R.id.detail_rs).text = covidCenter.rs
+                findViewById<TextView>(R.id.detail_addr).text = covidCenter.adresse
+                findViewById<TextView>(R.id.detail_do_antigenic).text = covidCenter.do_antigenic
+                findViewById<TextView>(R.id.detail_do_prel).text = covidCenter.do_prel
+                findViewById<TextView>(R.id.detail_public).text = covidCenter.public
+                findViewById<TextView>(R.id.detail_tel_rdv).text = covidCenter.tel_rdv
             }
             onFailure = {
                 if (it != null) {
@@ -43,20 +48,5 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
-        if (covidCenter != null)
-        {
-            findViewById<TextView>(R.id.detail_rs).text = covidCenter!!.rs
-            findViewById<TextView>(R.id.detail_addr).text = covidCenter!!.adresse
-            findViewById<TextView>(R.id.detail_do_antigenic).text = covidCenter!!.do_antigenic
-            findViewById<TextView>(R.id.detail_do_prel).text = covidCenter!!.do_prel
-            findViewById<TextView>(R.id.detail_public).text = covidCenter!!.public
-            findViewById<TextView>(R.id.detail_tel_rdv).text = covidCenter!!.tel_rdv
-        }
-
-        else
-        {
-            findViewById<TextView>(R.id.detail_rs).text = "Error"
-        }
-
     }
 }
