@@ -40,12 +40,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_pharmacy" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/e_center_fav"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:background="#00FFFFFF"
         android:contentDescription="@string/img_fav_off"
+        android:onClick="toFavOn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_off" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

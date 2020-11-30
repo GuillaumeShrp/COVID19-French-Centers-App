@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.CompoundButton
+import android.widget.ImageButton
 import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.fragment.app.FragmentTransaction
@@ -101,6 +102,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    /*fun toFavOn(view: View) {
+        Toast.makeText(this, "Favorite action", Toast.LENGTH_SHORT).show()
+        val imgFav: ImageButton = findViewById(R.id.e_center_fav)
+        imgFav.setOnClickListener {
+            imgFav.setImageResource(android.R.drawable.btn_star_big_on)
+        }
+
+    }*/
 
     /** POUR LE MENU DE LA TOOLBAR */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
