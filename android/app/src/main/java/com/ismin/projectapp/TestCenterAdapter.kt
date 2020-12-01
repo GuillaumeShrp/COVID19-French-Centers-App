@@ -1,6 +1,7 @@
 package com.ismin.projectapp
 
 import android.content.Context
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,11 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 
-class TestCenterAdapter(private val centers: ArrayList<CovidTestCenter>) : RecyclerView.Adapter<CentersViewHolder>() {
+class TestCenterAdapter(
+    private val centers: ArrayList<CovidTestCenter>,
+    private val favoriteList: ArrayList<Boolean>
+) : RecyclerView.Adapter<CentersViewHolder>() {
+
     private lateinit var eContext: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CentersViewHolder {
@@ -19,11 +24,11 @@ class TestCenterAdapter(private val centers: ArrayList<CovidTestCenter>) : Recyc
     }
 
     override fun onBindViewHolder(holder: CentersViewHolder, position: Int) {
-        val (_, name, address) = this.centers[position]
+        val (_, name, address) = centers[position]
 
         holder.txvCenterName.text = name
         holder.txvCenterAddress.text = address
-        holder.imvFav.setOnClickListener( Listener(position,centers[position],false,holder.imvFav))
+        holder.imvFav.setOnClickListener(ListenerFavorite(position,favoriteList[position],holder.imvFav,eContext))
     }
 
     override fun getItemCount(): Int {
@@ -36,29 +41,33 @@ class TestCenterAdapter(private val centers: ArrayList<CovidTestCenter>) : Recyc
         notifyDataSetChanged();
     }
 
-    internal class Listener(
+    /** A FAIRE
+     * changer la valeur du boulean depuis activité main avec un onclick
+     * faire un update de l'affichage en meme temps
+     */
+
+    internal class ListenerFavorite(
         position: Int,
-        Data: CovidTestCenter,
         isFavourite: Boolean,
-        favoriteView: ImageButton
+        favoriteView: ImageButton,
+        eContext: Context
     ) : View.OnClickListener {
 
-        var favoriteButton: ImageButton
-        var position: Int
-        var isFavorite: Boolean
+        private var favoriteButton: ImageButton = favoriteView
+        private var isFavorite: Boolean = isFavourite
+        private var eContext: Context = eContext
+        private var position: Int = position
+
         override fun onClick(view: View?) {
+
+            Toast.makeText(eContext, "Element position : $position", Toast.LENGTH_SHORT).show()
+
             if (isFavorite) {
                 favoriteButton.setImageResource(android.R.drawable.btn_star_big_off)
             } else {
                 favoriteButton.setImageResource(android.R.drawable.btn_star_big_on)
             }
             isFavorite = !isFavorite
-        }
-
-        init {
-            this.favoriteButton = favoriteView
-            this.position = position
-            this.isFavorite = isFavourite
         }
     }
 

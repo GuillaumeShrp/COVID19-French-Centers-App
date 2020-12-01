@@ -22,6 +22,7 @@ const val SERVER_BASE_URL = "https://covidtesingcenter-app.cleverapps.io/"
 class MainActivity : AppCompatActivity() {
 
     private var testCenterList: ArrayList<CovidTestCenter> = arrayListOf<CovidTestCenter>()
+    private var testCenterFavorite: ArrayList<Boolean> = arrayListOf<Boolean>()
     private lateinit var covidTestCenterService: CovidTestCenterService
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 val allCovidCenter = response.body()
                 allCovidCenter?.forEach { covidCenter ->
                     testCenterList.add(covidCenter)
+                    testCenterFavorite.add(false)
                 }
                 displayList()
             }
@@ -81,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun displayList() {
-        val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList)
+        val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList, testCenterFavorite)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_fragment_container, centerListFragment)
@@ -93,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 
     fun actionToggleButton(view: View) {
         //Toast.makeText(this, "Toggle action", Toast.LENGTH_SHORT).show()
-        val toggle: ToggleButton = findViewById(R.id.a_main_button_list)
+        val toggle: ToggleButton = view.findViewById(R.id.a_main_button_list)
         toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 displayDBInfo()
@@ -103,12 +105,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /*fun toFavOn(view: View) {
-        Toast.makeText(this, "Favorite action", Toast.LENGTH_SHORT).show()
-        val imgFav: ImageButton = findViewById(R.id.e_center_fav)
-        imgFav.setOnClickListener {
-            imgFav.setImageResource(android.R.drawable.btn_star_big_on)
-        }
+    /**
+    fun favoriteButton(view: View) {
+        il faut la postion du book holder pour changer le bool dans la liste
+        donc se placzer avec un listener dans le holder
 
     }*/
 
