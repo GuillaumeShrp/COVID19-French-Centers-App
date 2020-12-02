@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 
-private const val SHARED_FAVORITE_LIST = "SharedFaroriteList"
 
 class TestCenterAdapter(
     private val centers: ArrayList<CovidTestCenter>
@@ -19,7 +18,7 @@ class TestCenterAdapter(
 
     private lateinit var eContext: Context
     private lateinit var favoriteList: ArrayList<Boolean>
-    private val PREF_NAME = "SHARED_PREF_FILE"
+    //private val PREF_NAME = "SHARED_PREF_FILE"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CentersViewHolder {
         val rowView = LayoutInflater.from(parent.context).inflate(R.layout.element_covid_test_center, parent, false)

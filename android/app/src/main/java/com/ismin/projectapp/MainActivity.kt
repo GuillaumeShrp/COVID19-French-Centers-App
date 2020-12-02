@@ -17,15 +17,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
+const val SERVER_BASE_URL = "https://covidtesingcenter-app.cleverapps.io/"
+const val PREF_NAME = "SHARED_PREF_FILE"
+const val SHARED_FAVORITE_LIST = "SharedFaroriteList"
 
 class MainActivity : AppCompatActivity() {
-    val SERVER_BASE_URL = "https://covidtesingcenter-app.cleverapps.io/"
-    val PREF_NAME = "SHARED_PREF_FILE"
 
     private var testCenterList: ArrayList<CovidTestCenter> = arrayListOf<CovidTestCenter>()
     private var testCenterFavorite: ArrayList<Boolean> = arrayListOf<Boolean>()
     private lateinit var covidTestCenterService: CovidTestCenterService
-    private val SHARED_FAVORITE_LIST = "SharedFaroriteList"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

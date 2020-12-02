@@ -15,9 +15,8 @@ import com.ismin.projectapp.ObjectSerializer.serialize
 import java.io.Serializable
 
 
-private const val SHARED_FAVORITE_LIST = "SharedFaroriteList"
-private const val ARG_CENTERS = "ARG_CENTERS"
-private const val ARG_FAVORITE = "ARG_FAVORITE"
+const val ARG_CENTERS = "ARG_CENTERS"
+const val ARG_FAVORITE = "ARG_FAVORITE"
 
 
 class CovidTestCenterFragment : Fragment() {
