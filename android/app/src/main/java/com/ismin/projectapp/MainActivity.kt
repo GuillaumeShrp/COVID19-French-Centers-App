@@ -1,34 +1,32 @@
 package com.ismin.projectapp
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.CompoundButton
-import android.widget.ImageButton
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val SERVER_BASE_URL = "https://covidtesingcenter-app.cleverapps.io/"
+
 
 class MainActivity : AppCompatActivity() {
+    val SERVER_BASE_URL = "https://covidtesingcenter-app.cleverapps.io/"
+    val PREF_NAME = "SHARED_PREF_FILE"
 
     private var testCenterList: ArrayList<CovidTestCenter> = arrayListOf<CovidTestCenter>()
     private var testCenterFavorite: ArrayList<Boolean> = arrayListOf<Boolean>()
     private lateinit var covidTestCenterService: CovidTestCenterService
+    private val SHARED_FAVORITE_LIST = "SharedFaroriteList"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         fetchData()
     }
 
@@ -50,6 +48,9 @@ class MainActivity : AppCompatActivity() {
                     testCenterList.add(covidCenter)
                     testCenterFavorite.add(false)
                 }
+
+                var prefs = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+                prefs.edit().putString(SHARED_FAVORITE_LIST, ObjectSerializer.serialize(testCenterFavorite)).apply()
                 displayList()
             }
 
@@ -72,6 +73,9 @@ class MainActivity : AppCompatActivity() {
     private fun displayDBInfo() {
         val dbInfoFragment = DBInfoFragment()
 
+        /** Save favorite list*/
+        // recupération de la liste favorit à la fermeture du fragment
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_fragment_container, dbInfoFragment)
             //.addToBackStack("dbInfoFragment")
@@ -83,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun displayList() {
-        val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList, testCenterFavorite)
+        val centerListFragment = CovidTestCenterFragment.newInstance(testCenterList)//, testCenterFavorite)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_fragment_container, centerListFragment)
@@ -104,6 +108,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 
     /**
     fun favoriteButton(view: View) {
