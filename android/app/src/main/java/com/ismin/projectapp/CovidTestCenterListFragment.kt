@@ -10,8 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ismin.projectapp.ObjectSerializer.deserialize
-import com.ismin.projectapp.ObjectSerializer.serialize
 import java.io.Serializable
 
 
