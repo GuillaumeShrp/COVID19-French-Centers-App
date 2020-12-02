@@ -5,8 +5,7 @@
     <string name="img_pharmacy">Test center</string>
     <string name="toggle_list">Center List</string>
     <string name="toggle_dbinfo">DB credits</string>
-    <string name="db_subtext1">Ces données sont remontées par une enquête en ligne auprès des laboratoires de biologie médicale publics et privés qui réalisent des prélèvements nasopharyngés en vue d\'une analyse par RT-PCR dits PCR à la recherche de l\'ARN du virus SARS-CoV2.</string>
-    <string name="hello">
+    <string name="db_info">
         <![CDATA[
         <html>
         <head></head>
