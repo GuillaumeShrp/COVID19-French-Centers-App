@@ -16,19 +16,17 @@ import java.io.Serializable
 
 
 const val ARG_CENTERS = "ARG_CENTERS"
-const val ARG_FAVORITE = "ARG_FAVORITE"
 
 
 class CovidTestCenterFragment : Fragment() {
     private lateinit var centers: ArrayList<CovidTestCenter>
-    private lateinit var favoriteList: ArrayList<Boolean>
+    private lateinit var favoriteList: Set<String>
     private lateinit var rcvCenters: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             centers = it.getSerializable(ARG_CENTERS) as ArrayList<CovidTestCenter>
-            //favoriteList = it.getSerializable(ARG_FAVORITE) as ArrayList<Boolean>
         }
     }
 
@@ -47,13 +45,6 @@ class CovidTestCenterFragment : Fragment() {
         val dividerItemDecoration = DividerItemDecoration(context, linearLayoutManager.orientation)
         this.rcvCenters.addItemDecoration(dividerItemDecoration)
 
-
-        val prefs: SharedPreferences = context!!.getSharedPreferences("SHARED_PREF_FILE", Context.MODE_PRIVATE)
-        favoriteList = prefs.getString(
-            SHARED_FAVORITE_LIST,
-            ObjectSerializer.serialize(ArrayList<Boolean>()
-            ))?.let { ObjectSerializer.deserialize<ArrayList<Boolean>>(it) }!!
-
         return rootView;
     }
 
@@ -63,7 +54,6 @@ class CovidTestCenterFragment : Fragment() {
             CovidTestCenterFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_CENTERS, ArrayList(centers))
-                    //putSerializable(ARG_FAVORITE, ArrayList(favoriteList))
                 }
             }
     }

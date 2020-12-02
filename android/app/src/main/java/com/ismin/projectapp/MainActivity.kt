@@ -11,6 +11,8 @@ import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.fragment.app.FragmentTransaction
 import android.content.Intent
+import android.content.SharedPreferences
+import android.preference.PreferenceManager.getDefaultSharedPreferences
 import android.widget.TextView
 
 import retrofit2.Retrofit
@@ -24,13 +26,18 @@ const val SHARED_FAVORITE_LIST = "SharedFaroriteList"
 class MainActivity : AppCompatActivity() {
 
     private var testCenterList: ArrayList<CovidTestCenter> = arrayListOf<CovidTestCenter>()
-    private var testCenterFavorite: ArrayList<Boolean> = arrayListOf<Boolean>()
     private lateinit var covidTestCenterService: CovidTestCenterService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         fetchData()
+
+        //créaction de la liste des favorits
+        var prefs = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        prefs.edit().putStringSet(SHARED_FAVORITE_LIST, mutableSetOf<String>()).apply()
+
+        displayList()
     }
 
     private fun fetchData() {
@@ -49,11 +56,7 @@ class MainActivity : AppCompatActivity() {
                 val allCovidCenter = response.body()
                 allCovidCenter?.forEach { covidCenter ->
                     testCenterList.add(covidCenter)
-                    testCenterFavorite.add(false)
                 }
-
-                var prefs = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-                prefs.edit().putString(SHARED_FAVORITE_LIST, ObjectSerializer.serialize(testCenterFavorite)).apply()
                 displayList()
             }
 
@@ -81,11 +84,10 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_fragment_container, dbInfoFragment)
-            //.addToBackStack("dbInfoFragment")
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
 
-        Toast.makeText(this, "Display DB info fragment", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "Display DB info fragment", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -97,11 +99,10 @@ class MainActivity : AppCompatActivity() {
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit()
 
-        Toast.makeText(this, "Display center list fragment", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "Display center list fragment", Toast.LENGTH_SHORT).show()
     }
 
     fun actionToggleButton(view: View) {
-        //Toast.makeText(this, "Toggle action", Toast.LENGTH_SHORT).show()
         val toggle: ToggleButton = view.findViewById(R.id.a_main_button_list)
         toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -119,14 +120,6 @@ class MainActivity : AppCompatActivity() {
         this.startActivity(intent)
     }
 
-    /*fun toFavOn(view: View) {
-        Toast.makeText(this, "Favorite action", Toast.LENGTH_SHORT).show()
-        val imgFav: ImageButton = findViewById(R.id.e_center_fav)
-        imgFav.setOnClickListener {
-            imgFav.setImageResource(android.R.drawable.btn_star_big_on)
-        }
-
-    }*/
 
     /** POUR LE MENU DE LA TOOLBAR */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
