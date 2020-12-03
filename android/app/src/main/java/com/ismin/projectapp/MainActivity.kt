@@ -38,9 +38,10 @@ class MainActivity : AppCompatActivity() {
 
         //créaction de la liste des favorits
         prefs = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-        prefs.edit().putStringSet(SHARED_FAVORITE_LIST, mutableSetOf<String>()).apply()
+        //prefs.edit().putStringSet(SHARED_FAVORITE_LIST, mutableSetOf<String>()).apply()
+        Toast.makeText(applicationContext, "favList : ${prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>())}", Toast.LENGTH_SHORT).show()
 
-        displayList()
+        //displayList()
     }
 
     private fun fetchData() {
@@ -52,14 +53,20 @@ class MainActivity : AppCompatActivity() {
             .baseUrl(SERVER_BASE_URL)
             .build()
 
+        var i : Int = 0
+
         covidTestCenterService = retrofit.create(CovidTestCenterService::class.java)
 
         covidTestCenterService.getAllCovidCenters().enqueue {
             onResponse = { response ->
                 val allCovidCenter = response.body()
                 allCovidCenter?.forEach { covidCenter ->
+                if (i < 10)
+                {
+                    i += 1
                     testCenterList.add(covidCenter)
                 }
+            }
                 displayList()
             }
             onFailure = {
@@ -122,6 +129,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        prefs = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        prefs.edit().apply()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        prefs = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        prefs.edit().apply()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        displayList()
+    }
 
     /** POUR LE MENU DE LA TOOLBAR */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

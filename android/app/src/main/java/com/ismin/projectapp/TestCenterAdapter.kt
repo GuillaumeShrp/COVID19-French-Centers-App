@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -12,8 +13,9 @@ class TestCenterAdapter(
 ) : RecyclerView.Adapter<CentersViewHolder>() {
 
     private lateinit var eContext: Context
+    private lateinit var prefs: SharedPreferences
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CentersViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CentersViewHolder {
         val rowView = LayoutInflater.from(parent.context).inflate(R.layout.element_covid_test_center, parent, false)
         eContext = parent.context
         return CentersViewHolder(rowView)
@@ -24,39 +26,39 @@ class TestCenterAdapter(
 
         val prefs: SharedPreferences = eContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>()) as MutableSet<String>
-        var isFavoriteVal = isFavorite(id, favoriteList)
 
         holder.txvCenterName.text = name
         holder.txvCenterAddress.text = address
-        holder.setFavorite(isFavoriteVal) // display historical favorite
-
+        holder.setFavorite(isFavorite(id, favoriteList)) // display historical favorite
 
         /** Action to make a favorite */
         holder.imvFav.setOnClickListener {
-            if (!isFavoriteVal) {
+            var isFavoriteVal = isFavorite(id, favoriteList)
+            if (!isFavorite(id, favoriteList)) {
                 holder.imvFav.setImageResource(android.R.drawable.btn_star_big_on)
-                flipFavoriteValue(id, favoriteList, prefs, "add")
+                flipFavoriteValue(id, "add")
             } else {
                 holder.imvFav.setImageResource(android.R.drawable.btn_star_big_off)
-                flipFavoriteValue(id, favoriteList, prefs, "remove")
+                flipFavoriteValue(id, "remove")
             }
+            //Toast.makeText(eContext, "favList : $isFavoriteVal", Toast.LENGTH_SHORT).show()
             //Toast.makeText(eContext, "favList : ${prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>())}", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun flipFavoriteValue(
         id: String,
-        favoriteList: MutableSet<String>,
-        prefs: SharedPreferences,
         mode : String
     ) {
+        prefs = eContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>()) as MutableSet<String>
         if (mode == "add") {
             favoriteList.add(id)
         } else if (mode == "remove") {
             favoriteList.remove(id)
         }
         /** Push favorite update list in shared preferences */
-        prefs.edit().putStringSet(SHARED_FAVORITE_LIST, favoriteList).apply()
+        prefs.edit().putStringSet(SHARED_FAVORITE_LIST, favoriteList)
     }
 
     private fun isFavorite(id: String, favoriteList: Set<String>): Boolean {
