@@ -4,9 +4,9 @@ Android Application + Web Server Development
 
 by Guillaume Sherpa and Vivien Debuchy
 
+Students of Mines St Etienne, ISMIN 2020 - M2 Computer Science.
 
-[![Mines St Etienne](./logo.png)](https://www.mines-stetienne.fr/) Students of Mines St Etienne, ISMIN 2020 - M2 Computer Science.
-
+[![Mines St Etienne](./logo.png)](https://www.mines-stetienne.fr/) 
 
 ---
 ### Project
