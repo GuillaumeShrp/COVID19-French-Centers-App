@@ -101,7 +101,7 @@ class DetailActivity : AppCompatActivity() {
         val prefs: SharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         prefs.edit().apply()
     }
-    
+
 
     private fun isFavorite(id: String): Boolean {
         val prefs: SharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
