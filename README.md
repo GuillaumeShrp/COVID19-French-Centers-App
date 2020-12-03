@@ -27,23 +27,24 @@ Database of centers from [www.data.gouv.fr](https://www.data.gouv.fr/fr/datasets
 
 ---
 ### Authors' quote
+
 > G/ Tu pourrais le push ?
 
-> V/ Par contre niveau UI mon activité est degueulasse, c'est froid et impersonnel
+V/ Par contre niveau UI mon activité est dégueulasse, c'est froid et impersonnel
 
-> V/ La réduction des données est plus faible que prévu et ça crash toujours
+V/ La réduction des données est plus faible que prévue et ça crash toujours
 
-> G/ La solution de facilité serait de reduire le JSON...
+G/ La solution de facilité serait de réduire le JSON...
 
-> V/ Déjà si on a une base solide c'est cool !
+V/ Déjà si on a une base solide, c'est cool !
 
-> V/ Bon du coup j'ouvre android studio. Tu en étais ou toi ?
+V/ Bon du coup, j'ouvre Android studio. Tu en étais ou toi ?
 
-> G/ Bizard normalement on a le meme code, chez moi ça marche...
+G/ Bizard normalement, on a le même code, chez moi ça marche...
 
-> G/ Bingo !
+G/ Bingo !
 
-> V/ Mais j'habite pas dans le cnrs moi, aled.
+V/ Mais j'habite pas dans le CNRS moi, aled.
 
 ### License
 
