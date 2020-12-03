@@ -15,11 +15,7 @@
             <div class="row">
                 <p class="col-md-12">
                     <small><strong>Ce jeu de données provient d\'un service public certifié</strong><br></small>
-                    <small class="small-badge">
-                        <a href="/fr/search/?badge=covid-19" title="Voir tous les jeux de données avec ce badge.">
-                            <span class="fa fa-bookmark"></span>
-                            Covid-19</a>
-                    </small>
+                    <a href="https://www.data.gouv.fr/fr/datasets/sites-de-prelevements-pour-les-tests-covid/" rel="nofollow">Covid-19</a>
                 </p>
             </div>
         </div>

@@ -91,7 +91,7 @@ class DetailActivity : AppCompatActivity() {
             favoriteList.remove(id)
         }
         /** Push favorite update list in shared preferences */
-        prefs.edit().putStringSet(SHARED_FAVORITE_LIST, favoriteList)
+        prefs.edit().putStringSet(SHARED_FAVORITE_LIST, favoriteList).apply()
     }
 
     private fun isFavorite(id: String): Boolean {
