@@ -1,13 +1,18 @@
 ## COVID TEST CENTER
+
 Android Application + Web Server Development
+
 by Guillaume Sherpa and Vivien Debuchy
+
 Students of Mines St Etienne, ISMIN 2020 - M2 Computer Science.
 
 [![Mines St Etienne](./logo.png)](https://www.mines-stetienne.fr/)
 
 ---
 ### Project
+
 This application allows to list and display all covid test centers in France.
+
 Database of centers from [www.data.gouv.fr](https://www.data.gouv.fr/fr/datasets/sites-de-prelevements-pour-les-tests-covid/), downloaded on a [clevercloud server](covidtesingcenter-app.cleverapps.io).
 
 ### Features
@@ -41,4 +46,5 @@ Database of centers from [www.data.gouv.fr](https://www.data.gouv.fr/fr/datasets
 > V/ Mais j'habite pas dans le cnrs moi, aled.
 
 ### License
+
 MIT
