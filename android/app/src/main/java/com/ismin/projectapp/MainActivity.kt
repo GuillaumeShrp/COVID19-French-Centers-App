@@ -37,8 +37,6 @@ class MainActivity : AppCompatActivity() {
 
         //créaction de la liste des favorits
         val prefs: SharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-        //prefs.edit().putStringSet(SHARED_FAVORITE_LIST, mutableSetOf<String>()).apply()
-        Toast.makeText(applicationContext, "favList : ${prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>())}", Toast.LENGTH_SHORT).show()
 
         /*
         Changing fragment with the button
@@ -62,7 +60,6 @@ class MainActivity : AppCompatActivity() {
             .baseUrl(SERVER_BASE_URL)
             .build()
 
-        var i : Int = 0
 
         covidTestCenterService = retrofit.create(CovidTestCenterService::class.java)
 
@@ -70,11 +67,8 @@ class MainActivity : AppCompatActivity() {
             onResponse = { response ->
                 val allCovidCenter = response.body()
                 allCovidCenter?.forEach { covidCenter ->
-                if (i < 15)
-                {
-                    i += 1
+
                     testCenterList.add(covidCenter)
-                }
             }
                 displayList()
             }
@@ -131,6 +125,11 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         displayList()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        displayDBInfo()
     }
 
     /** POUR LE MENU DE LA TOOLBAR */

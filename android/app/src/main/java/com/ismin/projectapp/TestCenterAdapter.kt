@@ -34,7 +34,6 @@ class TestCenterAdapter(
         holder.setFavorite(isFavorite(id, favoriteList)) // display historical favorite
 
         //Changement de l'icone en fonction du mode de prévlèvement
-        Log.e("Info", mod_prel)
         if(mod_prel == "Drive")
         {
             holder.setIconeInfo(true)

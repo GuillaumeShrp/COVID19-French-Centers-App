@@ -28,8 +28,6 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
         imvFav = findViewById(R.id.a_detail_btn_favorite)
 
-        Log.e("info" ,"Lancement activité")
-
         this.covidCenterTestRs = intent.getStringExtra(Intent.EXTRA_TEXT).toString()
 
         val retrofit = Retrofit.Builder()
