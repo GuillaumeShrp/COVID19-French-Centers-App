@@ -101,9 +101,8 @@
 
     <ImageButton
         android:id="@+id/a_detail_btn_return"
-        android:layout_width="42dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="#00FFFFFF"
         android:onClick="backToCenterList"
         android:tint="#000000"
@@ -111,19 +110,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_btn_favorite"
         app:layout_constraintTop_toBottomOf="@+id/detail_do_antigenic"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <ImageButton
         android:id="@+id/a_detail_btn_favorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="200dp"
         android:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/a_detail_btn_return"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_do_prel"
-        app:layout_constraintVertical_bias="0.432"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/e_img_btn" />
 
 

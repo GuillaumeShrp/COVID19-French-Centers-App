@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 const val SERVER_BASE_URL = "https://covidtesingcenter-app.cleverapps.io/"
 const val PREF_NAME = "SHARED_PREF_FILE"
 const val SHARED_FAVORITE_LIST = "SHARED_FAVORITE_LIST"
-const val BECOME_FAVORITE_EXTRA_KEY = "BECOME_FAVORITE_EXTRA_KEY"
+const val FROM_DETAIL_EXTRA_KEY = "FROM_DETAIL_EXTRA_KEY"
 
 class MainActivity : AppCompatActivity() {
 
@@ -112,30 +112,14 @@ class MainActivity : AppCompatActivity() {
         displayDBInfo()
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(Intent.EXTRA_TEXT,  view.findViewById<TextView>(R.id.e_center_list_rs).text.toString())
-        startActivity(intent)
+        startActivityForResult(intent, detailActivityRequestCode)
     }
 
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == this.detailActivityRequestCode) {
-            val becomeFavorite = data?.extras?.get(BECOME_FAVORITE_EXTRA_KEY)
-            flipFavoriteValue(id, favoriteList, "add")
+            displayList()
         }
-    }*/
-
-    fun flipFavoriteValue(
-        id: String,
-        favoriteList: MutableSet<String>,
-        mode : String
-    ) {
-        val prefs: SharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-        if (mode == "add") {
-            favoriteList.add(id)
-        } else if (mode == "remove") {
-            favoriteList.remove(id)
-        }
-        /** Push favorite update list in shared preferences */
-        prefs.edit().putStringSet(SHARED_FAVORITE_LIST, favoriteList)
     }
 
 

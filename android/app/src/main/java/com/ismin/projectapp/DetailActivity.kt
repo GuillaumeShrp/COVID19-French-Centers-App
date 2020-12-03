@@ -115,7 +115,7 @@ class DetailActivity : AppCompatActivity() {
 
     fun backToCenterList(view: View) {
         val intent = Intent()
-        intent.putExtra(BECOME_FAVORITE_EXTRA_KEY, isFavorite(id))
+        intent.putExtra(FROM_DETAIL_EXTRA_KEY, true)
         setResult(RESULT_OK, intent)
         finish()
     }
