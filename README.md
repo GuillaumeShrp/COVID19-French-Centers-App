@@ -20,10 +20,17 @@ Database of centers from [www.data.gouv.fr](https://www.data.gouv.fr/fr/datasets
 - Bookmark centers ✔️
 - Check detailed center information ✔️
 - Refresh data base from server ✔️
- 
+
 ### Get started !
 - Start Android Studio after downloading the project
 - Select `Open an existing Android Studio project` and pick this directory
+
+### Technical information:
+-    The App is connected to a remote REST API server (Thanks to clervercould.com for free access to their infrastructure). Data are stored into the remote server in JSON format
+-    The App contains two fragments (data list and database information)
+-    The App contains two activities (main activity and detail activity)
+-    In the data list the “car” icon means that the COVID-19 test is done via a drive and the “place” icon means that the test is done on location
+-    It is possible to mark a COVID-19 test center as a favorite. The information is stored is the shared preferences of the Android OS.
 
 ---
 ### Authors' quote
