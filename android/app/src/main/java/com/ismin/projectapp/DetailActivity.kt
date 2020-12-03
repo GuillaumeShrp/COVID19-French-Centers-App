@@ -85,13 +85,15 @@ class DetailActivity : AppCompatActivity() {
     ) {
         val prefs: SharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>()) as MutableSet<String>
+        val editor: SharedPreferences.Editor = prefs.edit()
         if (mode == "add") {
             favoriteList.add(id)
         } else if (mode == "remove") {
             favoriteList.remove(id)
         }
         /** Push favorite update list in shared preferences */
-        prefs.edit().putStringSet(SHARED_FAVORITE_LIST, favoriteList)
+        editor.clear()
+        editor.putStringSet(SHARED_FAVORITE_LIST, favoriteList).apply()
     }
 
     override fun onPause() {
