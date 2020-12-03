@@ -49,7 +49,6 @@
         android:layout_height="45dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/img_fav_off"
-        android:onClick="favoriteButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_off" />

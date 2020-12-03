@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 
 class DBInfoFragment : Fragment() {
 
-    var infoWebView: WebView? = null
+    private var infoWebView: WebView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

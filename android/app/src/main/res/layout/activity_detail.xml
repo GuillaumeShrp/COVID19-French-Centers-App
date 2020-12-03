@@ -41,9 +41,9 @@
         android:layout_height="40dp"
         android:contentDescription="do_antigenic"
 
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/a_detail_txt_do_antigenic"
+        app:layout_constraintStart_toStartOf="@+id/a_detail_txt_do_antigenic"
+        app:layout_constraintTop_toBottomOf="@+id/a_detail_txt_do_antigenic"
         app:srcCompat="@android:drawable/presence_offline" />
 
     <ImageView
@@ -52,10 +52,10 @@
         android:layout_height="40dp"
         android:contentDescription="do_prel"
 
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@android:drawable/presence_offline"/>
+        app:layout_constraintEnd_toEndOf="@+id/a_detail_txt_do_sample"
+        app:layout_constraintStart_toStartOf="@+id/a_detail_txt_do_sample"
+        app:layout_constraintTop_toBottomOf="@+id/a_detail_txt_do_sample"
+        app:srcCompat="@android:drawable/presence_offline" />
 
     <TextView
         android:id="@+id/detail_public"
@@ -78,26 +78,53 @@
         tools:text="tel_rdv" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/a_detail_txt_do_sample"
         android:layout_width="120dp"
         android:layout_height="20dp"
         android:layout_marginTop="100dp"
         android:text="Do sample :"
         android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/a_detail_txt_do_antigenic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_tel_rdv" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/a_detail_txt_do_antigenic"
         android:layout_width="120dp"
         android:layout_height="20dp"
         android:layout_marginTop="100dp"
         android:text="Do antigenic :"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/a_detail_txt_do_sample"
         app:layout_constraintTop_toBottomOf="@+id/detail_tel_rdv" />
+
+    <ImageButton
+        android:id="@+id/a_detail_btn_return"
+        android:layout_width="42dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="76dp"
+        android:background="#00FFFFFF"
+        android:onClick="backToCenterList"
+        android:tint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/a_detail_btn_favorite"
+        app:layout_constraintTop_toBottomOf="@+id/detail_do_antigenic"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <ImageButton
+        android:id="@+id/a_detail_btn_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/a_detail_btn_return"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_do_prel"
+        app:layout_constraintVertical_bias="0.432"
+        app:srcCompat="@drawable/e_img_btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
