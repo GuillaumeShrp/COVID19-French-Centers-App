@@ -1,20 +1,18 @@
 package com.ismin.projectapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
-import android.content.Intent
-import android.content.SharedPreferences
-import android.preference.PreferenceManager.getDefaultSharedPreferences
-import android.widget.TextView
-
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -30,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var covidTestCenterService: CovidTestCenterService
     private val detailActivityRequestCode = 1
     private lateinit var prefs: SharedPreferences
+    private var togg: ToggleButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +40,17 @@ class MainActivity : AppCompatActivity() {
         //prefs.edit().putStringSet(SHARED_FAVORITE_LIST, mutableSetOf<String>()).apply()
         Toast.makeText(applicationContext, "favList : ${prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>())}", Toast.LENGTH_SHORT).show()
 
-        //displayList()
+        /*
+        Changing fragment with the button
+        * */
+        val toggle: ToggleButton = findViewById(R.id.a_main_button_list)
+        toggle.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                displayDBInfo()
+            } else {
+                displayList()
+            }
+        }
     }
 
     private fun fetchData() {
@@ -104,16 +113,6 @@ class MainActivity : AppCompatActivity() {
         //Toast.makeText(this, "Display center list fragment", Toast.LENGTH_SHORT).show()
     }
 
-    fun actionToggleButton(view: View) {
-        val toggle: ToggleButton = view.findViewById(R.id.a_main_button_list)
-        toggle.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                displayDBInfo()
-            } else {
-                displayList()
-            }
-        }
-    }
 
     fun showDetailCovidCenter(view: View) {
         displayDBInfo()
