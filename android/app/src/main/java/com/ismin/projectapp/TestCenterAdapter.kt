@@ -2,8 +2,10 @@ package com.ismin.projectapp
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
@@ -23,13 +25,25 @@ class TestCenterAdapter(
 
     override fun onBindViewHolder(holder: CentersViewHolder, position: Int) {
         val (id, name, address) = centers[position]
-
+        val mod_prel =  centers[position].mod_prel
         val prefs: SharedPreferences = eContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>()) as MutableSet<String>
 
         holder.txvCenterName.text = name
         holder.txvCenterAddress.text = address
         holder.setFavorite(isFavorite(id, favoriteList)) // display historical favorite
+
+        //Changement de l'icone en fonction du mode de prévlèvement
+        Log.e("Info", mod_prel)
+        if(mod_prel == "Drive")
+        {
+            holder.setIconeInfo(true)
+        }
+        else
+        {
+            holder.setIconeInfo(false)
+        }
+
 
         /** Action to make a favorite */
         holder.imvFav.setOnClickListener {

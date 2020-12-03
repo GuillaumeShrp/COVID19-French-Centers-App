@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             onResponse = { response ->
                 val allCovidCenter = response.body()
                 allCovidCenter?.forEach { covidCenter ->
-                if (i < 10)
+                if (i < 15)
                 {
                     i += 1
                     testCenterList.add(covidCenter)
