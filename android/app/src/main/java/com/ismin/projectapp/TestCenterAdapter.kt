@@ -27,7 +27,7 @@ class TestCenterAdapter(
         val (id, name, address) = centers[position]
         val mod_prel =  centers[position].mod_prel
         val prefs: SharedPreferences = eContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-        val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>()) as MutableSet<String>
+        val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, mutableSetOf<String>()) as MutableSet<String>
 
         holder.txvCenterName.text = name
         holder.txvCenterAddress.text = address
@@ -46,7 +46,6 @@ class TestCenterAdapter(
 
         /** Action to make a favorite */
         holder.imvFav.setOnClickListener {
-            var isFavoriteVal = isFavorite(id, favoriteList)
             if (!isFavorite(id, favoriteList)) {
                 holder.imvFav.setImageResource(android.R.drawable.btn_star_big_on)
                 flipFavoriteValue(id, "add")
@@ -64,7 +63,7 @@ class TestCenterAdapter(
         mode : String
     ) {
         val prefs: SharedPreferences = eContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-        val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>()) as MutableSet<String>
+        val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, mutableSetOf<String>()) as MutableSet<String>
         val editor: SharedPreferences.Editor = prefs.edit()
         if (mode == "add") {
             favoriteList.add(id)

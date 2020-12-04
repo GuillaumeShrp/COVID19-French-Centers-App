@@ -66,7 +66,7 @@ class DetailActivity : AppCompatActivity() {
     private fun favoriteSettings(id: String) {
         setFavorite(isFavorite(id))
         imvFav.setOnClickListener {
-            var isFavoriteVal = isFavorite(id)
+            val isFavoriteVal = isFavorite(id)
             if (!isFavoriteVal) {
                 imvFav.setImageResource(android.R.drawable.btn_star_big_on)
                 flipFavoriteValue(id, "add")
@@ -82,7 +82,7 @@ class DetailActivity : AppCompatActivity() {
         mode : String
     ) {
         val prefs: SharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-        val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>()) as MutableSet<String>
+        val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, mutableSetOf<String>()) as MutableSet<String>
         val editor: SharedPreferences.Editor = prefs.edit()
         if (mode == "add") {
             favoriteList.add(id)
@@ -103,7 +103,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun isFavorite(id: String): Boolean {
         val prefs: SharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-        val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, setOf<String>()) as MutableSet<String>
+        val favoriteList = prefs.getStringSet(SHARED_FAVORITE_LIST, mutableSetOf<String>()) as MutableSet<String>
         favoriteList.forEach {
             if (it == id)
                 return true
