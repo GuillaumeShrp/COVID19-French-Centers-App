@@ -27,16 +27,11 @@ class MainActivity : AppCompatActivity() {
     private var testCenterList: ArrayList<CovidTestCenter> = arrayListOf<CovidTestCenter>()
     private lateinit var covidTestCenterService: CovidTestCenterService
     private val detailActivityRequestCode = 1
-    private lateinit var prefs: SharedPreferences
-    private var togg: ToggleButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         fetchData()
-
-        //créaction de la liste des favorits
-        val prefs: SharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
         /*
         Changing fragment with the button
@@ -143,8 +138,8 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_action_refresh -> {
                 testCenterList.clear()
                 fetchData()
-                Toast.makeText(this, "Server data refreshed\nFavorites reset", Toast.LENGTH_SHORT).show()
-                true //equal to return true
+                Toast.makeText(this, "Server data refreshed", Toast.LENGTH_SHORT).show()
+                true
             }
             else -> super.onOptionsItemSelected(item)
         }
